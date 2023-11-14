@@ -12,52 +12,33 @@ import java.util.StringJoiner;
 
 public class MainController {
     @GetMapping("/scifi")
-    public String prvniMetoda() {
-        StringJoiner sj = new StringJoiner(System.lineSeparator());
-        try {
-            BufferedReader br = new BufferedReader(
-                    new FileReader(Data.getPATH()+Data.getFilenameScifi()));
-            String line = null;
-            while ((line = br.readLine()) != null) {
-                sj.add(line);
-            }
-            br.close();
-            return sj.toString();
-        }catch (Exception ex){
-        }
-        return "Soubor neexistuje";
-    }
-        @GetMapping("/romantic")
-        public String druhaMetoda() {
-            StringJoiner sj = new StringJoiner(System.lineSeparator());
-            try {
-                BufferedReader br = new BufferedReader(
-                        new FileReader(Data.getPATH()+Data.getFilenameRomantic()));
-                String line = null;
-                while ((line = br.readLine()) != null) {
-                    sj.add(line);
-                }
-                br.close();
-                return sj.toString();
-            }catch (Exception ex){
-            }
-            return "Soubor neexistuje";
-        }
-    @GetMapping("/historic")
-    public String tretiMetoda() {
-        StringJoiner sj = new StringJoiner(System.lineSeparator());
-        try {
-            BufferedReader br = new BufferedReader(
-                    new FileReader(Data.getPATH()+Data.getFilenameHistoric()));
-            String line = null;
-            while ((line = br.readLine()) != null) {
-                sj.add(line);
-            }
-            br.close();
-            return sj.toString();
-        }catch (Exception ex){
-        }
-        return "Soubor neexistuje";
+    public String getScifi() {
+        return getData(Data.getFilenameScifi());
     }
 
+    @GetMapping("/romantic")
+    public String getRomantic() {
+        return getData(Data.getFilenameRomantic());
+    }
+
+    @GetMapping("/historic")
+    public String getHistoric() {
+        return getData(Data.getFilenameHistoric());
+    }
+
+    private static String getData(String FilenameScifi) {
+        StringJoiner sj = new StringJoiner(System.lineSeparator());
+        try {
+            BufferedReader br = new BufferedReader(
+                    new FileReader(Data.getPATH() + FilenameScifi));
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                sj.add(line);
+            }
+            br.close();
+            return sj.toString();
+        } catch (Exception ex) {
+        }
+        return "Soubor neexistuje";
+    }
 }

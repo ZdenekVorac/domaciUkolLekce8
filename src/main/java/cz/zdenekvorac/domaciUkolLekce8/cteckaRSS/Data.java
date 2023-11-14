@@ -13,13 +13,15 @@ public class Data {
     public static String getFilenameScifi() {
         return FILENAME_SCIFI;
     }
+
     public static String getFilenameRomantic() {
         return FILENAME_ROMANTIC;
     }
+
     public static String getFilenameHistoric() {
         return FILENAME_HISTORIC;
     }
 
-    }
+}
 
 

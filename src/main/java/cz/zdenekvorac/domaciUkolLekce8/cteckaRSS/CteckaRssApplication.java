@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class CteckaRssApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(CteckaRssApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(CteckaRssApplication.class, args);
+    }
 
 }
